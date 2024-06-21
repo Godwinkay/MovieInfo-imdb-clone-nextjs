@@ -1,21 +1,17 @@
+import React from 'react';
 import Link from "next/link";
 import { FaRegThumbsUp } from "react-icons/fa";
 
 const API_KEY = process.env.API_KEY;
 
-export default async function Home({ searchParams }) {
-  const genre = searchParams.genre || "fetchtrending";
+export default async function SearchPage({ params }) {
+  const searchTerm = params.searchTerm;
   const res = await fetch(
-    `https://api.themoviedb.org/3${
-      genre === "fetchTopRated" ? "/movie/top_rated" : "/trending/all/week"
-    }?api_key=${API_KEY}`
+    `https://api.themoviedb.org/3/search/movie?query=${searchTerm}&api_key=${API_KEY}&language=en-US&page=1&include_adult=false`
   );
   const data = await res.json();
-  if (!res.ok) {
-    throw new Error(data.status_message, "Unable to Fetch Data");
-  }
   const results = data.results;
- 
+  console.log(results)
 
   return (
     <div className="grid justify-center gap-6 my-12 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 max-w-6xl mx-auto px-8">
@@ -29,7 +25,7 @@ export default async function Home({ searchParams }) {
               src={`https://image.tmdb.org/t/p/original/${
                 result.backdrop_path || result.poster_path
               }`}
-              className="rounded-t-lg h-[200px] w-full group-hover:opacity-75 transition-opacity duration-300"
+              className="rounded-t-lg h-[200px] group-hover:opacity-75 transition-opacity duration-300 w-full"
             />
           
           <div className="my-4 space-y-3">
