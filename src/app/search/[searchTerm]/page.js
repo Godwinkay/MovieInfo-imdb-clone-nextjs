@@ -25,6 +25,7 @@ export default async function SearchPage({ params }) {
               src={`https://image.tmdb.org/t/p/original/${
                 result.backdrop_path || result.poster_path
               }`}
+              alt='img'
               className="rounded-t-lg h-[200px] group-hover:opacity-75 transition-opacity duration-300 w-full"
             />
           

@@ -29,6 +29,7 @@ export default async function Home({ searchParams }) {
               src={`https://image.tmdb.org/t/p/original/${
                 result.backdrop_path || result.poster_path
               }`}
+              alt="img"
               className="rounded-t-lg h-[200px] w-full group-hover:opacity-75 transition-opacity duration-300"
             />
           

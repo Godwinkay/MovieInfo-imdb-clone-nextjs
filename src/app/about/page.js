@@ -24,7 +24,7 @@ const AboutPage = () => {
               <h2 className="text-2xl font-bold text-gray-900">Movie Recommendations</h2>
             </div>
             <p className="text-gray-700">
-              Whether you're looking for the latest blockbuster or a hidden gem, our team of movie experts curates personalized recommendations based on your preferences and viewing history.
+              Whether you are looking for the latest blockbuster or a hidden gem, our team of movie experts curates personalized recommendations based on your preferences and viewing history.
             </p>
           </div>
 
